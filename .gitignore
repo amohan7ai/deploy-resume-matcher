@@ -1,0 +1,20 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+.env*
+
+# Local scratch notes, not meant to be committed
+scratch-notes
+
+# Test cache / OS artifacts
+.pytest_cache/
+.DS_Store
+.claude/
