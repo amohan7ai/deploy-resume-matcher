@@ -10,9 +10,8 @@ app = FastAPI(
     lifespan=mcp_app.lifespan,
 )
 
-app.include_router(router)
-app.mount("/mcp", mcp_app)
-
+app.include_router(router, prefix="/api")   # was: app.include_router(router)
+app.mount("/api/mcp", mcp_app)              # was: app.mount("/mcp", mcp_app)
 
 app.add_middleware(
     CORSMiddleware,
