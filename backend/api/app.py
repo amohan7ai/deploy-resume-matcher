@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
 from mcp_server import storage as db
-from schema import MatchResult,Application, RewrittenResume
+from schema import Application, RewrittenResume
 from process.match_score_resume import match_score_resume   
 from process.gated_agent import gated_agent_check,gated_agent_resume    
 router = APIRouter()
@@ -33,3 +33,8 @@ def approve_tailoring(request: dict) -> RewrittenResume:
     response =  gated_agent_resume(request["thread_id"], request["decision"])
     print(response)
     return response 
+
+
+@router.get("/healthcheck")
+def healthcheck():
+    return {"status": "healthy"}

@@ -13,9 +13,8 @@ logger = logging.getLogger("resume-matcher-mcp")
 
 mcp = FastMCP("Resume matcher MCP Server")
 
-mcp_app = mcp.http_app(path="/")
+mcp_app = mcp.http_app(path="/", stateless_http=True)
 
-db.init_db()
 
 @mcp.tool
 def add_application(application: Application) -> Application:
