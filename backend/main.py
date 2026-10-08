@@ -1,7 +1,7 @@
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from api.app import router
+from api.app import protected_router,public_router
 from mcp_server.server import mcp_app
 
 app = FastAPI(
@@ -10,8 +10,11 @@ app = FastAPI(
     lifespan=mcp_app.lifespan,
 )
 
-app.include_router(router, prefix="/api")   # was: app.include_router(router)
-app.mount("/api/mcp", mcp_app)              # was: app.mount("/mcp", mcp_app)
+
+app.include_router(protected_router, prefix="/api")
+app.include_router(public_router, prefix="/api")
+app.mount("/mcp", mcp_app)
+
 
 app.add_middleware(
     CORSMiddleware,

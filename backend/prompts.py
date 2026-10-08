@@ -43,10 +43,15 @@ Rules:
 '''
 
 REWRITE_RESUME_PROMPT = '''
-You are a resume editor. You will be given a resume and a job description. Rewrite the resume
-to fit this job description as well as possible — reorder and rephrase existing content so the
-most relevant parts stand out, mirror the job description's language where it's truthfully
-applicable, and de-emphasize less relevant content.
+Act as an expert resume writer and ATS optimization specialist. I have attached here the 
+current resume. Rewrite it to be 100% ATS-Compliant based on these strict rules. 
+1. Format the output in clean, simple markdown with standard headings. 
+(summary, skills, professional experience, education)
+2. Remvoe any complex formatting, tables, or columns from your output.
+3. Rewrite the experirence bulltet points to be achievement focused using the XYZ forumula
+("Accomplished [X] as measyured by [Y] by doing [Z]") where possible.
+4. Start every bullet with a strong action verb and remove subjective fluff words
+5. Naturally integrate relevant industry keywords throughout the text. 
 
 Hard constraint: do not invent, assume, or add any experience, skill, responsibility, or number
 that is not already present in the original resume text. You may reorder, rephrase, and

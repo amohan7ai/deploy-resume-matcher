@@ -56,7 +56,7 @@ def gated_agent_check(resume_text: str, job_description: str):
     print("Thread ID: ", thread_id)
     return thread_id 
 
-def gated_agent_resume(thread_id: str, decision: str) -> dict:
+def gated_agent_resume(thread_id: str, decision: str) -> RewrittenResume:
     print(f"User decision for thread {thread_id}: {decision}")
     if gated_agent is None:
         create_gated_agent()
